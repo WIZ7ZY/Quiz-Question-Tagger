@@ -1,0 +1,17 @@
+{
+	"select": {
+		"column": "None",
+		"type": "COUNT"
+	},
+	"from": {
+		"table": "user_details"
+	},
+	"join": {
+	},
+	"where": {
+	},
+	"group_by": {
+	},
+	"order_by": {
+	}
+}

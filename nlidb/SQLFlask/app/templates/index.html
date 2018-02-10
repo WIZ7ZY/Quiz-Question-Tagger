@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="{{(url_for('static',filename='style.css'))}}">
+  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body>
+  <section class="container">
+    <center>
+    <div class="login">
+      <h1>NL2SQL</h1>
+      <form method="post" action="">
+        <p><input type="text" name="query" value="{{ request.form.query}}" placeholder="Enter query here" size="100" ></p>
+        <p>{{NL}}</p>
+
+        <p class="submit"><input type="submit" name="commit" value="Generate Query"></p>
+      </form>
+
+      <form method="post" action="">
+
+          {% for queries, real_queries in status %}
+          {% for i in range(0,queries|length) %}
+          <ul><input type = "radio" name="SQL" value="{{real_queries[i]}}">{{queries[i]}}:::{{real_queries[i]}}</ul>
+          {% endfor %}
+          {% endfor %}
+
+          <p class="execute"><input type="submit" name="execute" value="Execute Query"></p>
+
+      </form>
+
+      <p>{{Output}}</p>
+
+      </div>
+      </center>
+
+  </section>
+
+  <section class="container">
+    <center>
+    <div class="login">
+      <h1>Statistics</h1>
+      <form method="post" action="">
+
+        <p>Total number of tables: 17130 </p>
+        <p> On average, each table has 5 columns each</p>
+        <p> Data + metadata present, but search is only on metadata for now</p>
+        <p>Highest accuracy on table-column pair identification: 63%  on metadata alone</p>
+      </form>
+      </div>
+      </center>
+
+  </section>
+
+
+
+</body>
+</html>
